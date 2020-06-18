@@ -1,0 +1,42 @@
+#-------------------------------------------------------------------------------
+# Root folders and subfolders to ignore, start with '**/' and end with '/'
+# Folders NOT to be ignored start with '!'
+#-------------------------------------------------------------------------------
+
+**/.apt_generated/
+**/.gradle/
+**/.idea/
+**/.settings/
+**/.vscode/
+
+**/apidoc/doc/
+**/apidoc/snippets/
+**/docs/
+**/bin/
+**/build/
+**/logs/
+**/out/
+
+
+**/application-user*.yaml
+**/application-user*.yml
+
+
+#-------------------------------------------------------------------------------
+# Files in each subfolder to ignore, usually start with '*.'
+# Files NOT to be ignored start with '!'
+#-------------------------------------------------------------------------------
+
+*.classpath
+*.factorypath
+*.iml
+*.ipr
+*.iws
+*.project
+*.DS_Store
+
+!gradle/wrapper/gradle-wrapper.jar
+
+#-------------------------------------------------------------------------------
+# Please add to correct section in ALPHABETICAL order
+#-------------------------------------------------------------------------------
