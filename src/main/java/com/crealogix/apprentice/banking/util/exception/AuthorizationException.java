@@ -3,11 +3,11 @@
  */
 package com.crealogix.apprentice.banking.util.exception;
 
-public class ValidationException extends RuntimeException {
+public class AuthorizationException extends RuntimeException {
 
   private static final long serialVersionUID = 1L;
 
-  public ValidationException(String message) {
+  public AuthorizationException(String message) {
     super(message);
   }
 }

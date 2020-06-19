@@ -6,4 +6,8 @@ package com.crealogix.apprentice.banking.util.exception;
 public class ObjectNotCreatedException extends RuntimeException {
 
   private static final long serialVersionUID = 1L;
+
+  public ObjectNotCreatedException(String message) {
+    super(message);
+  }
 }

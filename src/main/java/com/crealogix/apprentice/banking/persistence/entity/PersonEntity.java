@@ -7,35 +7,26 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "customer", uniqueConstraints = { @UniqueConstraint(columnNames = { "first_name", "name" }) })
-@SequenceGenerator(name = BaseEntity.GENERATOR_NAME, sequenceName = "seq_customer_id", initialValue = 1000)
-public class CustomerEntity extends BaseEntity {
+@Table(name = "person")
+@SequenceGenerator(name = BaseEntity.GENERATOR_NAME, sequenceName = "seq_person_id", initialValue = 1000)
+public class PersonEntity extends BaseEntity {
 
   private static final long serialVersionUID = 1L;
-
-  @Column(name = "first_name")
-  private String firstName;
 
   @Column(name = "name")
   private String name;
 
-  public CustomerEntity() {
+  @Column(name = "first_name")
+  private String firstName;
+
+  public PersonEntity() {
     // Needed by Hibernate
   }
 
-  public CustomerEntity(String firstName, String name) {
-    this.firstName = firstName;
+  public PersonEntity(String name, String firstName) {
     this.name = name;
-  }
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
@@ -47,6 +38,14 @@ public class CustomerEntity extends BaseEntity {
     this.name = name;
   }
 
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
   @Override
   public boolean equals(Object obj) {
     // Use only the id for the equals() implementation.
@@ -55,10 +54,10 @@ public class CustomerEntity extends BaseEntity {
     if (this == obj) {
       return true;
     }
-    if (!(obj instanceof CustomerEntity)) {
+    if (!(obj instanceof PersonEntity)) {
       return false;
     }
-    CustomerEntity other = (CustomerEntity) obj;
+    PersonEntity other = (PersonEntity) obj;
     return getId() != null && getId().equals(other.getId());
   }
 

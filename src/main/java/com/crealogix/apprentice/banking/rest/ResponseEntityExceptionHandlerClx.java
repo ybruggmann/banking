@@ -3,6 +3,7 @@
  */
 package com.crealogix.apprentice.banking.rest;
 
+import com.crealogix.apprentice.banking.util.exception.AuthorizationException;
 import com.crealogix.apprentice.banking.util.exception.ObjectDoesNotExistException;
 import com.crealogix.apprentice.banking.util.exception.ObjectNotCreatedException;
 import com.crealogix.apprentice.banking.util.exception.ValidationException;
@@ -37,6 +38,12 @@ public class ResponseEntityExceptionHandlerClx extends ResponseEntityExceptionHa
   protected ResponseEntity<Object> handleValidationException(ValidationException e, WebRequest request) {
     logInfo(e);
     return new ResponseEntity<>(HttpStatus.BAD_REQUEST.getReasonPhrase(), HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(value = { AuthorizationException.class })
+  protected ResponseEntity<Object> handleAuthorizationException(AuthorizationException e, WebRequest request) {
+    logInfo(e);
+    return new ResponseEntity<>(HttpStatus.FORBIDDEN.getReasonPhrase(), HttpStatus.FORBIDDEN);
   }
 
   @ExceptionHandler({ Exception.class })
